@@ -6,7 +6,7 @@ url_domain = 'https://market.csgo.com'
 result = []
 
 
-def collect_data(url):
+def collect_data(url='https://market.csgo.com/?s=pop&t=365&p=1&sd=desc'):
     response = requests.get(url)
 
     src = response.text
@@ -30,6 +30,8 @@ def collect_data(url):
     # print(len(result))
     with open('result.json', 'w', encoding='utf-8') as file:
         json.dump(result, file, indent=4, ensure_ascii=False)
+
+    return result
 
 
 def total_pages():
